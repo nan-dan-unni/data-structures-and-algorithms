@@ -9,6 +9,7 @@
 ## Types
 
 - Singly Linked List
+- Doubly Linked List
 
 ### Computational Complexity
 
