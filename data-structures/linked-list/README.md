@@ -10,6 +10,7 @@
 
 - Singly Linked List
 - Doubly Linked List
+- Double Ended Linked List
 
 ### Computational Complexity
 
