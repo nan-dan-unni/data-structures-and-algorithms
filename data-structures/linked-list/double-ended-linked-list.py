@@ -35,12 +35,14 @@ class DoubleEndedLinkedList:
                     current.next = new_node
                     new_node.prev = current
                     new_node.next = next_node
+                    if next_node:
+                        next_node.prev = new_node
                     return True
                 else:
                     current = current.next
         return False
     
-    def __delete(self, data, delete_multiple=False):
+    def __remove(self, data, delete_multiple=False):
         deleted_count = 0
 
         if self.head is None:
@@ -54,20 +56,48 @@ class DoubleEndedLinkedList:
                     current.prev.next = current.next
                 if current.next is not None:
                     current.next.prev = current.prev
-                if delete_multiple: return deleted_count
+                if not delete_multiple: break
                 else: deleted_count += 1
+
+                if next_node is None:
+                    self.tail = current.prev
             current = next_node
         
+
         return deleted_count
     
-    def delete_one(self, data):
-        deleted_count = self.__delete(data=data, delete_multiple=False)
+    def remove_one(self, data):
+        deleted_count = self.__remove(data=data, delete_multiple=False)
         return deleted_count > 0
     
-    def delete_all(self, data):
-        return self.__delete(data=data, delete_multiple=True)
+    def remove_all(self, data):
+        return self.__remove(data=data, delete_multiple=True)
+    
+    def __str__(self):
+        data = []
+        current = self.head
+        while current is not None:
+            data.append(str(current.data))
+            current = current.next
+        return "None <-> " + " <-> ".join(data) + " <-> None"
 
 
 
 if __name__ == "__main__":
     ll = DoubleEndedLinkedList()
+    ll.insert(1)
+    ll.insert(4)
+    ll.insert(4)
+    ll.insert(4)
+    ll.insert(3)
+    ll.insert(4)
+    ll.insert(4)
+    print(ll)
+    ll.remove_one(4)
+    print(ll)
+    ll.remove_all(4)
+    print(ll)
+    ll.insert_after(2, 1)
+    ll.insert(4)
+    ll.insert(5)
+    print(ll)
