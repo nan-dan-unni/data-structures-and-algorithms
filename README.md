@@ -2,5 +2,5 @@
 
 ## Data Structures
 
-1. [Stack](data-structures/stack)
-2. [LinkedList](data-structures/linked-list)
+1. [Stack](data_structures/stack)
+2. [LinkedList](data_structures/linked_list)
