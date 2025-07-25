@@ -1,3 +1,4 @@
 from .doubly_linked_list import DoublyLinkedList
 from .double_ended_linked_list import DoubleEndedLinkedList
-from .singly_linked_list import SinglyLinkedList
+from .singly_linked_list import SinglyLinkedList, Node
+from .sorted_linked_list import SortedLinkedList
