@@ -4,8 +4,10 @@ class Node:
         self.next = next
 
 class SinglyLinkedList:
-    def __init__(self):
+    def __init__(self, *args):
         self.head = None
+        for item in args:
+            self.add(item)
     
     def add(self, data):
         newNode = Node(data)
@@ -16,6 +18,7 @@ class SinglyLinkedList:
             while current.next is not None:
                 current = current.next
             current.next = newNode
+        return newNode
     
     def removeOne(self, data):
         current = self.head
